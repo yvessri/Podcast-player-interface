@@ -9,9 +9,10 @@ import { SignInCard } from "./sign-in-card"
 type SidebarProps = {
   active: NavKey
   onNavigate: (key: NavKey) => void
+  onOpenSignIn: () => void
 }
 
-export function Sidebar({ active, onNavigate }: SidebarProps) {
+export function Sidebar({ active, onNavigate, onOpenSignIn }: SidebarProps) {
   const [showCard, setShowCard] = useState(true)
 
   return (
@@ -26,7 +27,7 @@ export function Sidebar({ active, onNavigate }: SidebarProps) {
 
       {showCard ? (
         <div className="mt-auto p-3">
-          <SignInCard onDismiss={() => setShowCard(false)} />
+          <SignInCard onDismiss={() => setShowCard(false)} onSignIn={onOpenSignIn} />
         </div>
       ) : null}
     </aside>

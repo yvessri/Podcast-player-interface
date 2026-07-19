@@ -9,9 +9,10 @@ import { NavList } from "./nav-list"
 type MobileHeaderProps = {
   active: NavKey
   onNavigate: (key: NavKey) => void
+  onOpenSignIn: () => void
 }
 
-export function MobileHeader({ active, onNavigate }: MobileHeaderProps) {
+export function MobileHeader({ active, onNavigate, onOpenSignIn }: MobileHeaderProps) {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const handleNavigate = (key: NavKey) => {
@@ -36,6 +37,10 @@ export function MobileHeader({ active, onNavigate }: MobileHeaderProps) {
 
         <button
           type="button"
+          onClick={() => {
+            setMenuOpen(false)
+            onOpenSignIn()
+          }}
           className="flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground"
         >
           <User className="h-4 w-4" aria-hidden="true" />
