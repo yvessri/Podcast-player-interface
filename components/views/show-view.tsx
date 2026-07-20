@@ -7,7 +7,7 @@ import { EpisodeListItem } from "../episode-list-item"
 import { PlayPill } from "../play-pill"
 
 type ShowViewProps = {
-  onOpenEpisode: () => void
+  onOpenEpisode: (slug: string) => void
 }
 
 export function ShowView({ onOpenEpisode }: ShowViewProps) {
@@ -21,11 +21,11 @@ export function ShowView({ onOpenEpisode }: ShowViewProps) {
             className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-foreground hover:bg-accent"
           >
             <Plus className="h-4 w-4" aria-hidden="true" />
-            Follow
+            ติดตาม
           </button>
           <button
             type="button"
-            aria-label="More options"
+            aria-label="ตัวเลือกเพิ่มเติม"
             className="inline-flex items-center rounded-full border border-border bg-card px-3 py-2 text-foreground hover:bg-accent"
           >
             <MoreHorizontal className="h-5 w-5" aria-hidden="true" />
@@ -35,6 +35,7 @@ export function ShowView({ onOpenEpisode }: ShowViewProps) {
         <div className="mt-4 flex flex-col gap-6 sm:flex-row">
           <Artwork
             alt={featuredShow.imageAlt}
+            src={featuredShow.coverImage}
             rounded="rounded-2xl"
             className="aspect-square w-full max-w-[220px] shrink-0"
           />
@@ -55,7 +56,7 @@ export function ShowView({ onOpenEpisode }: ShowViewProps) {
               {featuredShow.description}
             </p>
             <div className="mt-4">
-              <PlayPill duration="41m" variant="solid" />
+              <PlayPill duration={episodes[0].duration} variant="solid" />
             </div>
           </div>
         </div>
@@ -67,12 +68,16 @@ export function ShowView({ onOpenEpisode }: ShowViewProps) {
           type="button"
           className="mb-2 flex items-center gap-1 text-2xl font-bold text-foreground hover:opacity-80"
         >
-          <span id="season-heading">[Season]</span>
+          <span id="season-heading">ซีซัน 1 · ทั้งหมด {episodes.length} ตอน</span>
           <ChevronRight className="h-6 w-6" aria-hidden="true" />
         </button>
         <div>
           {episodes.map((episode) => (
-            <EpisodeListItem key={episode.id} episode={episode} onOpen={onOpenEpisode} />
+            <EpisodeListItem
+              key={episode.id}
+              episode={episode}
+              onOpen={() => onOpenEpisode(episode.slug)}
+            />
           ))}
         </div>
       </section>

@@ -13,7 +13,12 @@ import {
 import { useState } from "react"
 import { Artwork } from "./artwork"
 
-export function Player() {
+type PlayerProps = {
+  title?: string
+  subtitle?: string
+}
+
+export function Player({ title = "การดูแลผู้สูงอายุ", subtitle = "เลือกตอนเพื่อเริ่มฟัง" }: PlayerProps) {
   const [playing, setPlaying] = useState(false)
 
   return (
@@ -46,10 +51,10 @@ export function Player() {
 
         {/* Now playing */}
         <div className="flex min-w-0 flex-1 items-center gap-3">
-          <Artwork alt="Now playing artwork placeholder" className="h-10 w-10 shrink-0" rounded="rounded-md" />
+          <Artwork alt="ภาพปกตอนที่กำลังเล่น" className="h-10 w-10 shrink-0" rounded="rounded-md" />
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-foreground">[Now Playing Title]</p>
-            <p className="truncate text-xs text-muted-foreground">[Season], [Episode]</p>
+            <p className="truncate text-sm font-semibold text-foreground">{title}</p>
+            <p className="truncate text-xs text-muted-foreground">{subtitle}</p>
           </div>
         </div>
 

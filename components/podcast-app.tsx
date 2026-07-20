@@ -36,6 +36,8 @@ export function PodcastApp() {
 
   const openSignIn = () => setSignInOpen(true)
 
+  const selectedEpisode = episodes.find((e) => e.slug === selectedSlug) ?? episodes[0]
+
   const renderNavView = () => {
     switch (active) {
       case "search":
@@ -71,12 +73,12 @@ export function PodcastApp() {
 
         <main className="flex-1 px-4 py-6 pb-28 md:px-10 md:py-8 md:pb-32">
           {view === "nav" ? renderNavView() : null}
-          {view === "show" ? <ShowView onOpenEpisode={() => setView("episode")} /> : null}
-          {view === "episode" ? <EpisodeView onOpenShow={() => setView("show")} /> : null}
+          {view === "show" ? <ShowView onOpenEpisode={openEpisode} /> : null}
+          {view === "episode" ? <EpisodeView slug={selectedSlug} onOpenShow={openShow} /> : null}
         </main>
       </div>
 
-      <Player />
+      <Player title={selectedEpisode.title} subtitle={`${selectedEpisode.episode} · ${selectedEpisode.duration}`} />
 
       <SignInModal open={signInOpen} onClose={() => setSignInOpen(false)} />
     </div>

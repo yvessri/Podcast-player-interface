@@ -6,6 +6,7 @@ export function ShowCard({ show, onOpen }: { show: Show; onOpen?: () => void }) 
     <button type="button" onClick={onOpen} className="group block w-40 shrink-0 text-left">
       <Artwork
         alt={show.imageAlt}
+        src={show.coverImage}
         rounded="rounded-xl"
         className="aspect-square w-full transition-transform group-hover:scale-[1.02]"
       />
