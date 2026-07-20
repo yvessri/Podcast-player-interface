@@ -7,8 +7,8 @@ const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
 export const metadata: Metadata = {
-  title: 'พอดแคสต์ — โครงร่าง',
-  description: 'ส่วนติดต่อผู้ใช้แอปพอดแคสต์แบบโมดูลาร์ที่สร้างจากโครงร่างพร้อมเนื้อหาตัวอย่าง',
+  title: 'การดูแลผู้สูงอายุ | คู่มือผู้บริบาล',
+  description: 'แพลตฟอร์มความรู้สำหรับผู้ดูแลและผู้บริบาลผู้สูงอายุ รวมคู่มือการดูแลสุขภาพ 7 หัวข้อสำคัญ',
   generator: 'v0.app',
   icons: {
     icon: [
