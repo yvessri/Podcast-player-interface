@@ -22,16 +22,29 @@ import { cn } from "@/lib/utils"
 //   2) ให้ route คืนไฟล์เสียง (audio/mpeg) กลับมา
 //   3) ในปุ่มนี้ ให้แทนที่ส่วน SpeechSynthesis ด้วยการ fetch เสียงจาก route
 //      แล้วเล่นผ่าน:  const audio = new Audio(urlOrBlob); audio.play()
-//   4) จัดการสถานะ loading/playing/error ด้วย state ที่มีอยู่แล้วด้านล่าง
+//   4) จัดการสถานะ playing/error ด้วย state ที่มีอยู่แล้วด้านล่าง
 // =============================================================================
 
 type ListenButtonProps = {
-  /** ข้อความที่จะอ่านออกเสียง (โดยทั่วไปคือเนื้อหา Markdown ของตอน) */
-  getText: () => string
+  /** ชื่อตอน — อ่านออกเสียงเป็นประโยคแรก */
+  title: string
+  /** เนื้อหา Markdown ของตอนที่จะอ่านออกเสียง */
+  text: string
+  /** ปิดใช้งานปุ่ม (เช่น ระหว่างกำลังโหลดเนื้อหา) */
+  disabled?: boolean
   className?: string
 }
 
-export function ListenButton({ getText, className }: ListenButtonProps) {
+// แปลง Markdown เป็นข้อความอ่านง่าย ๆ (ตัดสัญลักษณ์ #, *, |, > และบล็อกโค้ดออก)
+function toPlainText(markdown: string) {
+  return markdown
+    .replace(/```[\s\S]*?```/g, "")
+    .replace(/[#>*_`|~-]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+}
+
+export function ListenButton({ title, text, disabled = false, className }: ListenButtonProps) {
   const [supported, setSupported] = useState(true)
   const [speaking, setSpeaking] = useState(false)
 
@@ -48,8 +61,16 @@ export function ListenButton({ getText, className }: ListenButtonProps) {
     }
   }, [])
 
+  // หยุดอ่านอัตโนมัติเมื่อเปลี่ยนเนื้อหา (เปลี่ยนตอน)
+  useEffect(() => {
+    if (typeof window !== "undefined" && "speechSynthesis" in window) {
+      window.speechSynthesis.cancel()
+      setSpeaking(false)
+    }
+  }, [text])
+
   const handleClick = () => {
-    if (!supported) return
+    if (!supported || disabled) return
 
     // ถ้ากำลังอ่านอยู่ ให้หยุด
     if (speaking) {
@@ -58,14 +79,7 @@ export function ListenButton({ getText, className }: ListenButtonProps) {
       return
     }
 
-    // แปลง Markdown เป็นข้อความอ่านง่าย ๆ (ตัดสัญลักษณ์ #, *, |, > ออก)
-    const raw = getText()
-    const plain = raw
-      .replace(/```[\s\S]*?```/g, "")
-      .replace(/[#>*_`|-]/g, " ")
-      .replace(/\s+/g, " ")
-      .trim()
-
+    const plain = `${title}. ${toPlainText(text)}`.trim()
     if (!plain) return
 
     const utterance = new SpeechSynthesisUtterance(plain)
@@ -88,10 +102,11 @@ export function ListenButton({ getText, className }: ListenButtonProps) {
     <button
       type="button"
       onClick={handleClick}
+      disabled={disabled}
       aria-label={speaking ? "หยุดฟังเนื้อหา" : "ฟังเนื้อหา"}
       aria-pressed={speaking}
       className={cn(
-        "inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-accent",
+        "inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-foreground transition-colors hover:bg-accent disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
     >
