@@ -15,7 +15,7 @@
 // ถ้า `coverImage` เป็น undefined คอมโพเนนต์ <Artwork> จะแสดง placeholder ให้อัตโนมัติ
 // -----------------------------------------------------------------------------
 
-export const LOGO_PLACEHOLDER = "ดูแลรัก"
+export const LOGO_PLACEHOLDER = "KareX"
 
 export const SHOW_TITLE = "การดูแลผู้สูงอายุ"
 
@@ -55,6 +55,19 @@ export type Episode = {
   coverImage?: string
 }
 
+// เพิ่มประเภทข้อมูลสำหรับหน้าปกรายการหลักเพื่อแก้ไขปัญหาบั๊กในหน้าคอมโพเนนต์
+export type FeaturedShowType = {
+  id: string
+  title: string
+  publisher: string
+  rating: string
+  category: string
+  cadence: string
+  description: string
+  imageAlt: string
+  coverImage?: string
+}
+
 // -----------------------------------------------------------------------------
 // 7 ตอน (episodes) ภายใต้หัวข้อหลัก "การดูแลผู้สูงอายุ"
 // เนื้อหาเต็มอยู่ในไฟล์ Markdown ที่ content/episodes/<slug>.md
@@ -70,7 +83,7 @@ export const episodes: Episode[] = [
     duration: "12 นาที",
     description:
       "กินอย่างไรให้แข็งแรงและปลอดภัย ตั้งแต่การจัดการภาวะกลืนลำบาก การเสริมโปรตีนป้องกันกล้ามเนื้อสลาย ไปจนถึงอาหารเฉพาะโรคเบาหวาน โรคไต และโรคหัวใจ",
-    // coverImage: "/covers/nutrition.jpg", // 800x800 px
+    coverImage: "/covers/nutrition.jpg", // เปิดใช้งานเส้นทางไฟล์รูปภาพ
   },
   {
     id: "episode-2",
@@ -81,7 +94,7 @@ export const episodes: Episode[] = [
     duration: "10 นาที",
     description:
       "คู่มือดูแลผู้ป่วยภาวะกลืนลำบาก การจัดท่า การตรวจอาหารค้างในกระเพาะ และเทคนิคล้างสายยางเพื่อป้องกันการอุดตันและการติดเชื้อ",
-    // coverImage: "/covers/tube-feeding.jpg", // 800x800 px
+    coverImage: "/covers/tube-feeding.jpg",
   },
   {
     id: "episode-3",
@@ -92,7 +105,7 @@ export const episodes: Episode[] = [
     duration: "9 นาที",
     description:
       "ทำไมการพลิกตัวทุก 2 ชั่วโมงจึงสำคัญ พร้อมตารางเวลา ขั้นตอนการจัดท่า และอุปกรณ์ช่วยป้องกันแผลกดทับและปอดอักเสบ",
-    // coverImage: "/covers/repositioning.jpg", // 800x800 px
+    coverImage: "/covers/repositioning.jpg",
   },
   {
     id: "episode-4",
@@ -103,7 +116,7 @@ export const episodes: Episode[] = [
     duration: "11 นาที",
     description:
       "สังเกต ประเมิน และดูแลแผลกดทับทั้ง 6 ระยะ พร้อมแนวทางป้องกันและสัญญาณอันตรายที่ต้องรีบพบแพทย์",
-    // coverImage: "/covers/pressure-ulcers.jpg", // 800x800 px
+    coverImage: "/covers/pressure-ulcers.jpg",
   },
   {
     id: "episode-5",
@@ -114,7 +127,7 @@ export const episodes: Episode[] = [
     duration: "10 นาที",
     description:
       "ป้องกันการติดเชื้อทางเดินปัสสาวะและกระแสเลือด ด้วยการจัดวางถุงปัสสาวะ การเทปัสสาวะอย่างปลอดเชื้อ และสุขอนามัยประจำวัน",
-    // coverImage: "/covers/urinary-catheter.jpg", // 800x800 px
+    coverImage: "/covers/urinary-catheter.jpg",
   },
   {
     id: "episode-6",
@@ -125,7 +138,7 @@ export const episodes: Episode[] = [
     duration: "8 นาที",
     description:
       "ทำไมต้องใช้น้ำอุ่นเท่านั้น ขั้นตอนการเช็ดตัวย้อนรูขุมขน ข้อควรระวัง และสัญญาณที่ต้องรีบพบแพทย์",
-    // coverImage: "/covers/tepid-sponge.jpg", // 800x800 px
+    coverImage: "/covers/tepid-sponge.jpg",
   },
   {
     id: "episode-7",
@@ -136,7 +149,7 @@ export const episodes: Episode[] = [
     duration: "10 นาที",
     description:
       "คู่มือผู้บริบาลในการตรวจและแปลผลระดับน้ำตาลในเลือดหลังอดอาหาร เพื่อคัดกรองความเสี่ยงเบาหวานในผู้สูงอายุ",
-    // coverImage: "/covers/blood-sugar.jpg", // 800x800 px
+    coverImage: "/covers/blood-sugar.jpg",
   },
 ]
 
@@ -147,7 +160,7 @@ export const featureCards: FeatureCard[] = [
     title: "โภชนาการเฉพาะบุคคลสำหรับผู้สูงอายุ กินอย่างไรให้ห่างไกลโรค",
     imageAlt: "ภาพปกตอนโภชนาการผู้สูงอายุ",
     episodeSlug: "01-nutrition",
-    // coverImage: "/covers/feature-nutrition.jpg", // 1280x720 px
+    coverImage: "/covers/feature-nutrition.jpg",
   },
   {
     id: "feature-2",
@@ -155,7 +168,7 @@ export const featureCards: FeatureCard[] = [
     title: "นาฬิกาพลิกตัวผู้ป่วยติดเตียง ป้องกันแผลกดทับทุก 2 ชั่วโมง",
     imageAlt: "ภาพปกตอนการพลิกตัวผู้ป่วยติดเตียง",
     episodeSlug: "03-repositioning",
-    // coverImage: "/covers/feature-repositioning.jpg", // 1280x720 px
+    coverImage: "/covers/feature-repositioning.jpg",
   },
   {
     id: "feature-3",
@@ -163,7 +176,7 @@ export const featureCards: FeatureCard[] = [
     title: "เจาะลึก 6 ระยะแผลกดทับ สังเกตและดูแลก่อนสายเกินไป",
     imageAlt: "ภาพปกตอนแผลกดทับ",
     episodeSlug: "04-pressure-ulcers",
-    // coverImage: "/covers/feature-pressure-ulcers.jpg", // 1280x720 px
+    coverImage: "/covers/feature-pressure-ulcers.jpg",
   },
 ]
 
@@ -177,7 +190,8 @@ export const topShows: Show[] = episodes.map((ep, i) => ({
   coverImage: ep.coverImage,
 }))
 
-export const featuredShow = {
+// ผูก Type ให้กับตัวแปรเพื่อแก้ปัญหาเส้นแดงใน VS Code
+export const featuredShow: FeaturedShowType = {
   id: "featured-show",
   title: SHOW_TITLE,
   publisher: "พอดแคสต์เพื่อผู้ดูแลและผู้บริบาล",
@@ -187,5 +201,5 @@ export const featuredShow = {
   description:
     "พอดแคสต์ที่รวบรวมความรู้และแนวทางปฏิบัติสำหรับการดูแลผู้สูงอายุและผู้ป่วยที่บ้าน ตั้งแต่โภชนาการ การให้อาหารทางสายยาง การพลิกตัวป้องกันแผลกดทับ ไปจนถึงการดูแลสายสวนปัสสาวะและการเฝ้าระวังระดับน้ำตาลในเลือด เพื่อให้ผู้ดูแลทำหน้าที่ได้อย่างมั่นใจและปลอดภัย",
   imageAlt: "ภาพปกรายการการดูแลผู้สูงอายุ",
-  // coverImage: "/covers/show.jpg", // 1200x1200 px
+  coverImage: "/covers/show.jpg",
 }
