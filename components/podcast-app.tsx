@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Home, Search } from "lucide-react"
-import type { NavKey } from "@/lib/data"
+import { episodes, type NavKey } from "@/lib/data"
 import { MobileHeader } from "./mobile-header"
 import { Player } from "./player"
 import { Sidebar } from "./sidebar"
@@ -19,12 +19,20 @@ type View = "nav" | "show" | "episode"
 export function PodcastApp() {
   const [active, setActive] = useState<NavKey>("new")
   const [view, setView] = useState<View>("nav")
+  const [selectedSlug, setSelectedSlug] = useState(episodes[0].slug)
   const [signInOpen, setSignInOpen] = useState(false)
 
   const handleNavigate = (key: NavKey) => {
     setActive(key)
     setView("nav")
   }
+
+  const openEpisode = (slug: string) => {
+    setSelectedSlug(slug)
+    setView("episode")
+  }
+
+  const openShow = () => setView("show")
 
   const openSignIn = () => setSignInOpen(true)
 
@@ -33,24 +41,24 @@ export function PodcastApp() {
       case "search":
         return (
           <PlaceholderView
-            title="Search"
-            description="[Search results appear here. Wire this view up to a real search index later.]"
+            title="ค้นหา"
+            description="พิมพ์เพื่อค้นหาตอนหรือหัวข้อที่สนใจ ผลการค้นหาจะปรากฏที่นี่"
             icon={Search}
           />
         )
       case "home":
         return (
           <PlaceholderView
-            title="Home"
-            description="[Your personalized home feed appears here once content is connected.]"
+            title="หน้าแรก"
+            description="ฟีดแนะนำเฉพาะคุณจะปรากฏที่นี่ เลือกตอนที่อยากฟังจากเมนู ใหม่ หรือ ชาร์ตยอดนิยม ได้เลย"
             icon={Home}
           />
         )
       case "top-charts":
-        return <TopChartsView onOpenShow={() => setView("show")} />
+        return <TopChartsView onOpenEpisode={openEpisode} />
       case "new":
       default:
-        return <NewView onOpenShow={() => setView("show")} />
+        return <NewView onOpenEpisode={openEpisode} onOpenShow={openShow} />
     }
   }
 
