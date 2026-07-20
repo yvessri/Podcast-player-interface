@@ -21,11 +21,11 @@ export function ShowView({ onOpenEpisode }: ShowViewProps) {
             className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-4 py-2 text-sm font-semibold text-foreground hover:bg-accent"
           >
             <Plus className="h-4 w-4" aria-hidden="true" />
-            Follow
+            ติดตาม
           </button>
           <button
             type="button"
-            aria-label="More options"
+            aria-label="ตัวเลือกเพิ่มเติม"
             className="inline-flex items-center rounded-full border border-border bg-card px-3 py-2 text-foreground hover:bg-accent"
           >
             <MoreHorizontal className="h-5 w-5" aria-hidden="true" />
@@ -55,7 +55,7 @@ export function ShowView({ onOpenEpisode }: ShowViewProps) {
               {featuredShow.description}
             </p>
             <div className="mt-4">
-              <PlayPill duration="41m" variant="solid" />
+              <PlayPill duration="41 นาที" variant="solid" />
             </div>
           </div>
         </div>
@@ -67,7 +67,7 @@ export function ShowView({ onOpenEpisode }: ShowViewProps) {
           type="button"
           className="mb-2 flex items-center gap-1 text-2xl font-bold text-foreground hover:opacity-80"
         >
-          <span id="season-heading">[Season]</span>
+          <span id="season-heading">[ซีซัน]</span>
           <ChevronRight className="h-6 w-6" aria-hidden="true" />
         </button>
         <div>

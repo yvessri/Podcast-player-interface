@@ -10,7 +10,7 @@ type TopChartsViewProps = {
 export function TopChartsView({ onOpenShow }: TopChartsViewProps) {
   return (
     <div className="space-y-8">
-      <h1 className="text-4xl font-bold tracking-tight text-foreground">Top Charts</h1>
+      <h1 className="text-4xl font-bold tracking-tight text-foreground">ชาร์ตยอดนิยม</h1>
 
       <ol className="flex flex-col divide-y divide-border rounded-xl border border-border bg-card">
         {topShows.map((show) => (

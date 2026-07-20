@@ -7,8 +7,8 @@ const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
 const geistMono = Geist_Mono({ subsets: ['latin'], variable: '--font-geist-mono' })
 
 export const metadata: Metadata = {
-  title: 'Podcasts — Wireframe',
-  description: 'A modular podcast app UI built from wireframes with placeholder content.',
+  title: 'พอดแคสต์ — โครงร่าง',
+  description: 'ส่วนติดต่อผู้ใช้แอปพอดแคสต์แบบโมดูลาร์ที่สร้างจากโครงร่างพร้อมเนื้อหาตัวอย่าง',
   generator: 'v0.app',
   icons: {
     icon: [
@@ -43,7 +43,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`bg-background ${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="th" className={`bg-background ${geistSans.variable} ${geistMono.variable}`}>
       <body className="font-sans antialiased">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}

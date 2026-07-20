@@ -15,7 +15,7 @@ export function PlayPill({ duration, variant = "subtle", progress = 25 }: PlayPi
   return (
     <button
       type="button"
-      aria-label={`Play, ${duration} remaining`}
+      aria-label={`เล่น เหลืออีก ${duration}`}
       className={cn(
         "inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold transition-opacity hover:opacity-90",
         solid ? "bg-brand text-brand-foreground" : "bg-accent text-foreground",

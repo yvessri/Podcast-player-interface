@@ -27,44 +27,44 @@ export function Player() {
           >
             1x
           </button>
-          <button type="button" aria-label="Skip back 15 seconds" className="hidden text-muted-foreground hover:text-foreground md:inline-flex">
+          <button type="button" aria-label="ย้อนกลับ 15 วินาที" className="hidden text-muted-foreground hover:text-foreground md:inline-flex">
             <RotateCcw className="h-5 w-5" aria-hidden="true" />
           </button>
           <button
             type="button"
-            aria-label={playing ? "Pause" : "Play"}
+            aria-label={playing ? "หยุดชั่วคราว" : "เล่น"}
             aria-pressed={playing}
             onClick={() => setPlaying((v) => !v)}
             className="text-foreground"
           >
             {playing ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
           </button>
-          <button type="button" aria-label="Skip forward 30 seconds" className="text-muted-foreground hover:text-foreground">
+          <button type="button" aria-label="ข้ามไปข้างหน้า 30 วินาที" className="text-muted-foreground hover:text-foreground">
             <RotateCw className="h-5 w-5" aria-hidden="true" />
           </button>
         </div>
 
         {/* Now playing */}
         <div className="flex min-w-0 flex-1 items-center gap-3">
-          <Artwork alt="Now playing artwork placeholder" className="h-10 w-10 shrink-0" rounded="rounded-md" />
+          <Artwork alt="ภาพตัวอย่างรายการที่กำลังเล่น" className="h-10 w-10 shrink-0" rounded="rounded-md" />
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-foreground">[Now Playing Title]</p>
-            <p className="truncate text-xs text-muted-foreground">[Season], [Episode]</p>
+            <p className="truncate text-sm font-semibold text-foreground">[ชื่อรายการที่กำลังเล่น]</p>
+            <p className="truncate text-xs text-muted-foreground">[ซีซัน], [ตอน]</p>
           </div>
         </div>
 
         {/* Secondary controls */}
         <div className="hidden items-center gap-3 text-muted-foreground md:flex">
-          <button type="button" aria-label="More options" className="hover:text-foreground">
+          <button type="button" aria-label="ตัวเลือกเพิ่มเติม" className="hover:text-foreground">
             <MoreHorizontal className="h-5 w-5" aria-hidden="true" />
           </button>
-          <button type="button" aria-label="Episode info" className="hover:text-foreground">
+          <button type="button" aria-label="ข้อมูลตอน" className="hover:text-foreground">
             <Info className="h-5 w-5" aria-hidden="true" />
           </button>
-          <button type="button" aria-label="Up next" className="hover:text-foreground">
+          <button type="button" aria-label="เล่นถัดไป" className="hover:text-foreground">
             <ListMusic className="h-5 w-5" aria-hidden="true" />
           </button>
-          <button type="button" aria-label="Volume" className="hover:text-foreground">
+          <button type="button" aria-label="ระดับเสียง" className="hover:text-foreground">
             <Volume2 className="h-5 w-5" aria-hidden="true" />
           </button>
         </div>

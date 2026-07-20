@@ -33,16 +33,16 @@ export function PodcastApp() {
       case "search":
         return (
           <PlaceholderView
-            title="Search"
-            description="[Search results appear here. Wire this view up to a real search index later.]"
+            title="ค้นหา"
+            description="[ผลการค้นหาจะปรากฏที่นี่ เชื่อมต่อมุมมองนี้กับดัชนีการค้นหาจริงในภายหลัง]"
             icon={Search}
           />
         )
       case "home":
         return (
           <PlaceholderView
-            title="Home"
-            description="[Your personalized home feed appears here once content is connected.]"
+            title="หน้าแรก"
+            description="[ฟีดหน้าแรกที่ปรับให้เหมาะกับคุณจะปรากฏที่นี่เมื่อเชื่อมต่อเนื้อหาแล้ว]"
             icon={Home}
           />
         )

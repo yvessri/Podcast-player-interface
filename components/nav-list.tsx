@@ -11,7 +11,7 @@ type NavListProps = {
 
 export function NavList({ active, onNavigate }: NavListProps) {
   return (
-    <nav aria-label="Primary" className="flex flex-col gap-1">
+    <nav aria-label="เมนูหลัก" className="flex flex-col gap-1">
       {navItems.map(({ key, label, icon: Icon }) => {
         const isActive = key === active
         return (

@@ -15,14 +15,14 @@ export function EpisodeView({ onOpenShow }: EpisodeViewProps) {
       <div className="flex justify-end gap-2">
         <button
           type="button"
-          aria-label="Share"
+          aria-label="แชร์"
           className="inline-flex items-center rounded-full border border-border bg-card px-3 py-2 text-foreground hover:bg-accent"
         >
           <Share className="h-5 w-5" aria-hidden="true" />
         </button>
         <button
           type="button"
-          aria-label="More options"
+          aria-label="ตัวเลือกเพิ่มเติม"
           className="inline-flex items-center rounded-full border border-border bg-card px-3 py-2 text-foreground hover:bg-accent"
         >
           <MoreHorizontal className="h-5 w-5" aria-hidden="true" />

@@ -22,7 +22,7 @@ export function EpisodeListItem({ episode, onOpen }: { episode: Episode; onOpen?
       </p>
       <div className="mt-3 flex items-center justify-between">
         <PlayPill duration={episode.duration} />
-        <button type="button" aria-label="More options" className="text-muted-foreground hover:text-foreground">
+        <button type="button" aria-label="ตัวเลือกเพิ่มเติม" className="text-muted-foreground hover:text-foreground">
           <MoreHorizontal className="h-5 w-5" aria-hidden="true" />
         </button>
       </div>

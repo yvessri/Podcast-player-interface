@@ -42,7 +42,7 @@ export function SignInModal({ open, onClose }: SignInModalProps) {
       {/* Backdrop */}
       <button
         type="button"
-        aria-label="Close sign in"
+        aria-label="ปิดหน้าต่างเข้าสู่ระบบ"
         onClick={onClose}
         className="absolute inset-0 bg-foreground/50 backdrop-blur-sm"
       />
@@ -53,7 +53,7 @@ export function SignInModal({ open, onClose }: SignInModalProps) {
           ref={closeRef}
           type="button"
           onClick={onClose}
-          aria-label="Close"
+          aria-label="ปิด"
           className="absolute right-4 top-4 rounded-full p-1 text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
         >
           <X className="h-5 w-5" aria-hidden="true" />
@@ -62,9 +62,9 @@ export function SignInModal({ open, onClose }: SignInModalProps) {
         <div className="mb-6 text-center">
           <span className="text-lg font-bold text-foreground">{LOGO_PLACEHOLDER}</span>
           <h2 id="sign-in-title" className="mt-3 text-2xl font-bold tracking-tight text-foreground">
-            Sign In
+            เข้าสู่ระบบ
           </h2>
-          <p className="mt-1 text-sm text-muted-foreground">[Short line describing account benefits.]</p>
+          <p className="mt-1 text-sm text-muted-foreground">[ข้อความสั้น ๆ อธิบายประโยชน์ของบัญชี]</p>
         </div>
 
         <form
@@ -76,7 +76,7 @@ export function SignInModal({ open, onClose }: SignInModalProps) {
         >
           <div className="space-y-1.5">
             <label htmlFor="email" className="block text-sm font-medium text-foreground">
-              Email
+              อีเมล
             </label>
             <input
               id="email"
@@ -89,7 +89,7 @@ export function SignInModal({ open, onClose }: SignInModalProps) {
 
           <div className="space-y-1.5">
             <label htmlFor="password" className="block text-sm font-medium text-foreground">
-              Password
+              รหัสผ่าน
             </label>
             <input
               id="password"
@@ -104,14 +104,14 @@ export function SignInModal({ open, onClose }: SignInModalProps) {
             type="submit"
             className="w-full rounded-full bg-brand px-4 py-2.5 text-sm font-semibold text-brand-foreground transition-opacity hover:opacity-90"
           >
-            Sign In
+            เข้าสู่ระบบ
           </button>
         </form>
 
         <p className="mt-4 text-center text-sm text-muted-foreground">
-          {"Don't have an account? "}
+          {"ยังไม่มีบัญชีใช่ไหม? "}
           <button type="button" className="font-semibold text-brand hover:underline">
-            Sign Up
+            สมัครสมาชิก
           </button>
         </p>
       </div>
