@@ -5,13 +5,26 @@ type ArtworkProps = {
   alt: string
   className?: string
   rounded?: string
+  /** เส้นทางรูปจริงใน public/ เช่น "/covers/nutrition.jpg" ถ้าไม่ส่งมาจะแสดง placeholder */
+  src?: string
 }
 
 /**
- * A neutral placeholder that stands in for cover art / images.
- * Swap this for a real <img> or next/image when wiring up content.
+ * แสดงภาพปก: ถ้ามี `src` จะแสดงรูปจริง มิฉะนั้นแสดง placeholder ที่เป็นกลาง
+ * ดูวิธีเพิ่มรูปจริงและขนาดที่แนะนำได้ในหัวข้อ COVER IMAGES ที่ lib/data.ts
  */
-export function Artwork({ alt, className, rounded = "rounded-lg" }: ArtworkProps) {
+export function Artwork({ alt, className, rounded = "rounded-lg", src }: ArtworkProps) {
+  if (src) {
+    return (
+      <img
+        src={src || "/placeholder.svg"}
+        alt={alt}
+        className={cn("object-cover", rounded, className)}
+        crossOrigin="anonymous"
+      />
+    )
+  }
+
   return (
     <div
       role="img"

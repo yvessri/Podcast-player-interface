@@ -12,6 +12,7 @@ export function FeatureCard({ card, onOpen }: { card: FeatureCardType; onOpen?: 
       </h3>
       <Artwork
         alt={card.imageAlt}
+        src={card.coverImage}
         rounded="rounded-xl"
         className="mt-3 aspect-video w-full transition-transform group-hover:scale-[1.01]"
       />

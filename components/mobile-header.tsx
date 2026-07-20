@@ -25,7 +25,7 @@ export function MobileHeader({ active, onNavigate, onOpenSignIn }: MobileHeaderP
       <div className="flex items-center justify-between border-b border-border bg-background/95 px-4 py-3 backdrop-blur">
         <button
           type="button"
-          aria-label={menuOpen ? "Close menu" : "Open menu"}
+          aria-label={menuOpen ? "ปิดเมนู" : "เปิดเมนู"}
           aria-expanded={menuOpen}
           onClick={() => setMenuOpen((v) => !v)}
           className="text-foreground"
@@ -44,7 +44,7 @@ export function MobileHeader({ active, onNavigate, onOpenSignIn }: MobileHeaderP
           className="flex items-center gap-1.5 rounded-full bg-brand px-4 py-2 text-sm font-semibold text-brand-foreground"
         >
           <User className="h-4 w-4" aria-hidden="true" />
-          Sign In
+          เข้าสู่ระบบ
         </button>
       </div>
 
@@ -57,7 +57,7 @@ export function MobileHeader({ active, onNavigate, onOpenSignIn }: MobileHeaderP
             className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-left text-base font-medium text-foreground hover:bg-accent/60"
           >
             <ArrowUpRight className="h-5 w-5" aria-hidden="true" />
-            Open in [App]
+            เปิดในแอป ดูแลรัก
           </button>
         </div>
       ) : null}

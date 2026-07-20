@@ -8,8 +8,8 @@ export type NavItem = {
 }
 
 export const navItems: NavItem[] = [
-  { key: "search", label: "Search", icon: Search },
-  { key: "home", label: "Home", icon: Home },
-  { key: "new", label: "New", icon: LayoutGrid },
-  { key: "top-charts", label: "Top Charts", icon: ListOrdered },
+  { key: "search", label: "ค้นหา", icon: Search },
+  { key: "home", label: "หน้าแรก", icon: Home },
+  { key: "new", label: "ใหม่", icon: LayoutGrid },
+  { key: "top-charts", label: "ชาร์ตยอดนิยม", icon: ListOrdered },
 ]
