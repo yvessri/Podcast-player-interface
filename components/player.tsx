@@ -10,16 +10,24 @@ import {
   RotateCw,
   Volume2,
 } from "lucide-react"
-import { useState } from "react"
+import { useAudio } from "@/context/audio-context"
 import { Artwork } from "./artwork"
 
-type PlayerProps = {
-  title?: string
-  subtitle?: string
-}
+export function Player() {
+  const {
+    currentEpisode,
+    isPlaying,
+    progress,
+    playbackRate,
+    togglePlay,
+    seekRelative,
+    changeSpeed,
+  } = useAudio()
 
-export function Player({ title = "การดูแลผู้สูงอายุ", subtitle = "เลือกตอนเพื่อเริ่มฟัง" }: PlayerProps) {
-  const [playing, setPlaying] = useState(false)
+  const title = currentEpisode?.title ?? "การดูแลผู้สูงอายุ"
+  const subtitle = currentEpisode
+    ? `${currentEpisode.season} · ${currentEpisode.episode}`
+    : "เลือกตอนเพื่อเริ่มฟัง"
 
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 px-2 pb-2 md:px-4 md:pb-4">
@@ -28,33 +36,60 @@ export function Player({ title = "การดูแลผู้สูงอา�
         <div className="flex items-center gap-1 md:gap-2">
           <button
             type="button"
-            className="hidden text-sm font-semibold text-foreground md:inline"
+            onClick={changeSpeed}
+            className="hidden text-sm font-semibold text-foreground md:inline hover:opacity-80"
           >
-            1x
+            {playbackRate}x
           </button>
-          <button type="button" aria-label="Skip back 15 seconds" className="hidden text-muted-foreground hover:text-foreground md:inline-flex">
+          <button
+            type="button"
+            aria-label="Skip back 15 seconds"
+            onClick={() => seekRelative(-15)}
+            className="hidden text-muted-foreground hover:text-foreground md:inline-flex"
+          >
             <RotateCcw className="h-5 w-5" aria-hidden="true" />
           </button>
           <button
             type="button"
-            aria-label={playing ? "Pause" : "Play"}
-            aria-pressed={playing}
-            onClick={() => setPlaying((v) => !v)}
-            className="text-foreground"
+            aria-label={isPlaying ? "Pause" : "Play"}
+            aria-pressed={isPlaying}
+            onClick={togglePlay}
+            disabled={!currentEpisode}
+            className="text-foreground disabled:opacity-40"
           >
-            {playing ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
+            {isPlaying ? <Pause className="h-6 w-6" /> : <Play className="h-6 w-6" />}
           </button>
-          <button type="button" aria-label="Skip forward 30 seconds" className="text-muted-foreground hover:text-foreground">
+          <button
+            type="button"
+            aria-label="Skip forward 30 seconds"
+            onClick={() => seekRelative(30)}
+            className="text-muted-foreground hover:text-foreground"
+          >
             <RotateCw className="h-5 w-5" aria-hidden="true" />
           </button>
         </div>
 
         {/* Now playing */}
         <div className="flex min-w-0 flex-1 items-center gap-3">
-          <Artwork alt="ภาพปกตอนที่กำลังเล่น" className="h-10 w-10 shrink-0" rounded="rounded-md" />
-          <div className="min-w-0">
+          <Artwork
+            src={currentEpisode?.coverImage}
+            alt={title}
+            className="h-10 w-10 shrink-0"
+            rounded="rounded-md"
+          />
+          <div className="min-w-0 flex-1">
             <p className="truncate text-sm font-semibold text-foreground">{title}</p>
             <p className="truncate text-xs text-muted-foreground">{subtitle}</p>
+            
+            {/* หลอด Progress แสดงเวลาเล่นในแถบเล่นเสียง */}
+            {currentEpisode && (
+              <div className="mt-1 h-1 w-full overflow-hidden rounded-full bg-muted">
+                <div
+                  className="h-full bg-brand transition-all duration-150"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
+            )}
           </div>
         </div>
 

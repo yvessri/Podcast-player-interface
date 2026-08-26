@@ -53,6 +53,7 @@ export type Episode = {
   description: string
   /** เส้นทางรูปปกสี่เหลี่ยมจัตุรัส 1:1 ใน public/ เช่น "/covers/nutrition.jpg" */
   coverImage?: string
+  audio: string
 }
 
 // เพิ่มประเภทข้อมูลสำหรับหน้าปกรายการหลักเพื่อแก้ไขปัญหาบั๊กในหน้าคอมโพเนนต์
@@ -80,10 +81,11 @@ export const episodes: Episode[] = [
     season: "ซีซัน 1",
     episode: "ตอนที่ 1",
     title: "การพลิกตัวผู้ป่วยติดเตียง",
-    duration: "10 นาที",
+    duration: "6 นาที",
     description:
       "การดูแลผู้ป่วยติดเตียงอย่างถูกวิธีเป็นหัวใจสำคัญในการป้องกันภาวะแทรกซ้อนร้ายแรงที่อาจเป็นอันตรายถึงชีวิต",
     coverImage: "/covers/blood-sugar.jpg",
+    audio: "/audio/Topic 1.wav",
   },
   {
     id: "episode-2",
@@ -91,10 +93,11 @@ export const episodes: Episode[] = [
     season: "ซีซัน 1",
     episode: "ตอนที่ 2",
     title: "การเช็ดตัวลดไข้",
-    duration: "10 นาที",
+    duration: "4 นาที",
     description:
-      "การเช็ดตัวลดไข้ที่ถูกต้อง",
+      "เรียนรู้เทคนิคการเช็ดตัวระบายความร้อนด้วยน้ำอุ่นอย่างถูกวิธี",
     coverImage: "/covers/blood-sugar.jpg",
+    audio: "/audio/Topic 2.wav",
   },
   {
     id: "episode-3",
@@ -102,10 +105,11 @@ export const episodes: Episode[] = [
     season: "ซีซัน 1",
     episode: "ตอนที่ 3",
     title: "การดูแลสายยาง",
-    duration: "10 นาที",
+    duration: "6 นาที",
     description:
       "การดูแลสายยางให้อาหารและการทำความสะอาดสำหรับผู้ป่วยที่มีภาวะกลืนลำบาก",
     coverImage: "/covers/blood-sugar.jpg",
+    audio: "/audio/Topic 3.wav",
   },
   {
     id: "episode-4",
@@ -113,10 +117,11 @@ export const episodes: Episode[] = [
     season: "ซีซัน 1",
     episode: "ตอนที่ 4",
     title: "การดูแลสายสวนและถุงปัสสาวะ",
-    duration: "10 นาที",
+    duration: "4 นาที",
     description:
-      "แนวทางปฏิบัติเพื่อการดูแลสายสวนและถุงปัสสาวะอย่างถูกวิธีเพื่อป้องกันการติดเชื้อในระบบทางเดินปัสสาวะ",
+      "แนวทางปฏิบัติเพื่อป้องกันการติดเชื้อในระบบทางเดินปัสสาวะและกระแสเลือด",
     coverImage: "/covers/blood-sugar.jpg",
+    audio: "/audio/Topic 4.wav",
   },
   {
     id: "episode-5",
@@ -124,10 +129,11 @@ export const episodes: Episode[] = [
     season: "ซีซัน 1",
     episode: "ตอนที่ 5",
     title: "การประเมินและการดูแลแผลกดทับ",
-    duration: "10 นาที",
+    duration: "5 นาที",
     description:
-      "เกณฑ์การประเมินความรุนแรงของแผลกดทับเพื่อดูแลได้ถูกต้อง และแนวทางป้องกันการเกิดแผลกดทับ",
+      "วิธีการสังเกตและประเมินความรุนแรงของแผลกดทับ",
     coverImage: "/covers/blood-sugar.jpg",
+    audio: "/audio/Topic 5.wav",
   },
   {
     id: "episode-6",
@@ -135,10 +141,11 @@ export const episodes: Episode[] = [
     season: "ซีซัน 1",
     episode: "ตอนที่ 6",
     title: "สุขภาพและโภชนาการสำหรับผู้สูงอายุ",
-    duration: "10 นาที",
+    duration: "5 นาที",
     description:
-      "การดูแลโภชนาการของผู้สูงอายุเป็นสิ่งสำคัญอย่างยิ่งต่อคุณภาพชีวิตและสุขภาพโดยรวม",
+      "การจัดการอาหารเฉพาะบุคคลสำหรับผู้สูงอายุ ครอบคลุมวิธีแก้ปัญหาภาวะกลืนลำบาก",
     coverImage: "/covers/blood-sugar.jpg",
+    audio: "/audio/Topic 6.wav",
   },
   {
     id: "episode-7",
@@ -146,10 +153,11 @@ export const episodes: Episode[] = [
     season: "ซีซัน 1",
     episode: "ตอนที่ 7",
     title: "การแปลผลสุขภาพเบื้องต้น",
-    duration: "10 นาที",
+    duration: "4 นาที",
     description:
-      "แนวทางคัดกรองและเฝ้าระวังความเสี่ยงโรคเบาหวานของผู้สูงอายุเพื่อให้สามารถทำได้เองที่บ้าน",
+      "การแปลผลสุขภาพเบื้องต้นสำหรับผู้บริบาล",
     coverImage: "/covers/blood-sugar.jpg",
+    audio: "/audio/Topic 7.wav",
   },
 ]
 

@@ -1,6 +1,6 @@
 "use client"
 
-import { Play } from "lucide-react"
+import { Pause, Play } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 type PlayPillProps = {
@@ -8,20 +8,29 @@ type PlayPillProps = {
   /** Solid brand pill (used on show hero) vs. subtle outline pill (used in lists). */
   variant?: "solid" | "subtle"
   progress?: number
+  isPlaying?: boolean
+  onPlayToggle?: () => void
+  disabled?: boolean
 }
 
-export function PlayPill({ duration, variant = "subtle", progress = 25 }: PlayPillProps) {
+export function PlayPill({ duration, variant = "subtle", progress = 0, isPlaying = false, onPlayToggle, disabled = false }: PlayPillProps) {
   const solid = variant === "solid"
+  const Icon = isPlaying ? Pause : Play
   return (
     <button
       type="button"
-      aria-label={`Play, ${duration} remaining`}
+      onClick={onPlayToggle}
+      disabled={disabled}
+      aria-label={isPlaying ? "Pause" : `Play, Remaining ${duration}`}
       className={cn(
         "inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold transition-opacity hover:opacity-90",
         solid ? "bg-brand text-brand-foreground" : "bg-accent text-foreground",
       )}
     >
-      <Play className={cn("h-4 w-4", solid ? "text-brand-foreground" : "text-brand")} aria-hidden="true" />
+      <Icon
+        className={cn("h-4 w-4 fill-current", solid ? "text-brand-foreground" : "text-brand")}
+        aria-hidden="true"
+      />
       <span
         className={cn(
           "h-1 w-12 overflow-hidden rounded-full",
@@ -33,7 +42,7 @@ export function PlayPill({ duration, variant = "subtle", progress = 25 }: PlayPi
           style={{ width: `${progress}%` }}
         />
       </span>
-      <span>{duration}</span>
+      <span>{isPlaying ? "Playing" : duration}</span>
     </button>
   )
 }

@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+import { AudioProvider } from '@/context/audio-context'
 import './globals.css'
 
 const geistSans = Geist({ subsets: ['latin'], variable: '--font-geist-sans' })
@@ -43,9 +44,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`bg-background ${geistSans.variable} ${geistMono.variable}`}>
+    <html lang="th" className={`bg-background ${geistSans.variable} ${geistMono.variable}`}>
       <body className="font-sans antialiased">
-        {children}
+        {/* ครอบ AudioProvider เพื่อกระจาย State เล่นเสียงไปยัง EpisodeView และ Player */}
+        <AudioProvider>
+          {children}
+        </AudioProvider>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

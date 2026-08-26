@@ -2,6 +2,7 @@
 
 import { ChevronRight, MoreHorizontal, Share } from "lucide-react"
 import useSWR from "swr"
+import { useAudio } from "@/context/audio-context"
 import { episodes, featuredShow, SHOW_TITLE } from "@/lib/data"
 import { Artwork } from "../artwork"
 import { ListenButton } from "../listen-button"
@@ -18,13 +19,18 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json())
 export function EpisodeView({ slug, onOpenShow }: EpisodeViewProps) {
   const episode = episodes.find((e) => e.slug === slug) ?? episodes[0]
 
-  // ดึงเนื้อหา Markdown แบบไดนามิกจาก API route (อ่านไฟล์จาก content/episodes/<slug>.md)
   const { data, isLoading } = useSWR<{ content: string }>(
     `/api/episodes/${episode.slug}`,
     fetcher,
   )
 
   const markdown = data?.content ?? ""
+
+  // เรียกใช้ตัวเล่นเสียงระดับ Global Context
+  const { currentEpisode, isPlaying, progress, playEpisode } = useAudio()
+
+  const isCurrentPlaying = currentEpisode?.id === episode.id && isPlaying
+  const currentProgress = currentEpisode?.id === episode.id ? progress : 0
 
   return (
     <article className="max-w-3xl space-y-6">
@@ -69,7 +75,13 @@ export function EpisodeView({ slug, onOpenShow }: EpisodeViewProps) {
         </button>
 
         <div className="mt-4 flex flex-wrap items-center gap-3">
-          <PlayPill duration={episode.duration} variant="solid" />
+          <PlayPill
+            duration={episode.duration}
+            variant="solid"
+            isPlaying={isCurrentPlaying}
+            progress={currentProgress}
+            onPlayToggle={() => playEpisode(episode)}
+          />
           <ListenButton title={episode.title} text={markdown} disabled={isLoading || !markdown} />
         </div>
       </header>
