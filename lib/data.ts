@@ -84,7 +84,7 @@ export const episodes: Episode[] = [
     duration: "6 นาที",
     description:
       "การดูแลผู้ป่วยติดเตียงอย่างถูกวิธีเป็นหัวใจสำคัญในการป้องกันภาวะแทรกซ้อนร้ายแรงที่อาจเป็นอันตรายถึงชีวิต",
-    coverImage: "/covers/blood-sugar.jpg",
+    coverImage: "/covers/positioning.jpeg",
     audio: "/audio/Topic 1.wav",
   },
   {
@@ -96,7 +96,7 @@ export const episodes: Episode[] = [
     duration: "4 นาที",
     description:
       "เรียนรู้เทคนิคการเช็ดตัวระบายความร้อนด้วยน้ำอุ่นอย่างถูกวิธี",
-    coverImage: "/covers/blood-sugar.jpg",
+    coverImage: "/covers/wipe.jpg",
     audio: "/audio/Topic 2.wav",
   },
   {
@@ -108,7 +108,7 @@ export const episodes: Episode[] = [
     duration: "6 นาที",
     description:
       "การดูแลสายยางให้อาหารและการทำความสะอาดสำหรับผู้ป่วยที่มีภาวะกลืนลำบาก",
-    coverImage: "/covers/blood-sugar.jpg",
+    coverImage: "/covers/foodtube.jpeg",
     audio: "/audio/Topic 3.wav",
   },
   {
@@ -120,7 +120,7 @@ export const episodes: Episode[] = [
     duration: "4 นาที",
     description:
       "แนวทางปฏิบัติเพื่อป้องกันการติดเชื้อในระบบทางเดินปัสสาวะและกระแสเลือด",
-    coverImage: "/covers/blood-sugar.jpg",
+    coverImage: "/covers/urinebag.jpeg",
     audio: "/audio/Topic 4.wav",
   },
   {
@@ -132,7 +132,7 @@ export const episodes: Episode[] = [
     duration: "5 นาที",
     description:
       "วิธีการสังเกตและประเมินความรุนแรงของแผลกดทับ",
-    coverImage: "/covers/blood-sugar.jpg",
+    coverImage: "/covers/assess.jpeg",
     audio: "/audio/Topic 5.wav",
   },
   {
@@ -144,7 +144,7 @@ export const episodes: Episode[] = [
     duration: "5 นาที",
     description:
       "การจัดการอาหารเฉพาะบุคคลสำหรับผู้สูงอายุ ครอบคลุมวิธีแก้ปัญหาภาวะกลืนลำบาก",
-    coverImage: "/covers/blood-sugar.jpg",
+    coverImage: "/covers/nutrition.jpeg",
     audio: "/audio/Topic 6.wav",
   },
   {
@@ -156,7 +156,7 @@ export const episodes: Episode[] = [
     duration: "4 นาที",
     description:
       "การแปลผลสุขภาพเบื้องต้นสำหรับผู้บริบาล",
-    coverImage: "/covers/blood-sugar.jpg",
+    coverImage: "/covers/record.jpeg",
     audio: "/audio/Topic 7.wav",
   },
 ]
@@ -168,7 +168,7 @@ export const featureCards: FeatureCard[] = [
     title: "โภชนาการเฉพาะบุคคลสำหรับผู้สูงอายุ กินอย่างไรให้ห่างไกลโรค",
     imageAlt: "ภาพปกตอนโภชนาการผู้สูงอายุ",
     episodeSlug: "01-nutrition",
-    coverImage: "/covers/feature-nutrition.jpg",
+    coverImage: "/covers/healthy.jpeg",
   },
   {
     id: "feature-2",
@@ -176,7 +176,7 @@ export const featureCards: FeatureCard[] = [
     title: "นาฬิกาพลิกตัวผู้ป่วยติดเตียง ป้องกันแผลกดทับทุก 2 ชั่วโมง",
     imageAlt: "ภาพปกตอนการพลิกตัวผู้ป่วยติดเตียง",
     episodeSlug: "03-repositioning",
-    coverImage: "/covers/feature-repositioning.jpg",
+    coverImage: "/covers/positioning.jpeg",
   },
   {
     id: "feature-3",
@@ -209,5 +209,5 @@ export const featuredShow: FeaturedShowType = {
   description:
     "พอดแคสต์ที่รวบรวมความรู้และแนวทางปฏิบัติสำหรับการดูแลผู้สูงอายุและผู้ป่วยที่บ้าน ตั้งแต่โภชนาการ การให้อาหารทางสายยาง การพลิกตัวป้องกันแผลกดทับ ไปจนถึงการดูแลสายสวนปัสสาวะและการเฝ้าระวังระดับน้ำตาลในเลือด เพื่อให้ผู้ดูแลทำหน้าที่ได้อย่างมั่นใจและปลอดภัย",
   imageAlt: "ภาพปกรายการการดูแลผู้สูงอายุ",
-  coverImage: "/covers/show.jpg",
+  coverImage: "/covers/show.jpeg",
 }
