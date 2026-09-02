@@ -11,7 +11,7 @@ export function TopChartsView({ onOpenEpisode }: TopChartsViewProps) {
   return (
     <div className="space-y-8">
       <h1 className="text-4xl font-bold tracking-tight text-foreground">พอดแคส</h1>
-      <h2>การดูแลผู้สูงอายุ</h2>
+      <h2 className="text-xl font-bold">การดูแลผู้สูงอายุ</h2>
 
       <ol className="flex flex-col divide-y divide-border rounded-xl border border-border bg-card">
         {episodes.map((ep, i) => (
