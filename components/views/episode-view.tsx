@@ -52,9 +52,9 @@ export function EpisodeView({ slug, onOpenShow }: EpisodeViewProps) {
       </div>
 
       <header>
-        <p className="text-sm font-semibold text-muted-foreground">
+        {/* <p className="text-sm font-semibold text-muted-foreground">
           {episode.season} · {episode.episode}
-        </p>
+        </p> */}
         <h1 className="mt-1 text-4xl font-bold tracking-tight text-balance text-foreground">
           {episode.title}
         </h1>
@@ -82,7 +82,7 @@ export function EpisodeView({ slug, onOpenShow }: EpisodeViewProps) {
             progress={currentProgress}
             onPlayToggle={() => playEpisode(episode)}
           />
-          <ListenButton title={episode.title} text={markdown} disabled={isLoading || !markdown} />
+          {/* <ListenButton title={episode.title} text={markdown} disabled={isLoading || !markdown} /> */}
         </div>
       </header>
 

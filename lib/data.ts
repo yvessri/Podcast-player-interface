@@ -46,8 +46,8 @@ export type Episode = {
   id: string
   /** slug ต้องตรงกับชื่อไฟล์ใน content/episodes/<slug>.md */
   slug: string
-  season: string
-  episode: string
+  // season: string
+  // episode: string
   title: string
   duration: string
   description: string
@@ -78,8 +78,6 @@ export const episodes: Episode[] = [
   {
     id: "episode-1",
     slug: "Static topic 1",
-    season: "ซีซัน 1",
-    episode: "ตอนที่ 1",
     title: "การพลิกตัวผู้ป่วยติดเตียง",
     duration: "6 นาที",
     description:
@@ -90,8 +88,6 @@ export const episodes: Episode[] = [
   {
     id: "episode-2",
     slug: "Static topic 2",
-    season: "ซีซัน 1",
-    episode: "ตอนที่ 2",
     title: "การเช็ดตัวลดไข้",
     duration: "4 นาที",
     description:
@@ -102,8 +98,6 @@ export const episodes: Episode[] = [
   {
     id: "episode-3",
     slug: "Static topic 3",
-    season: "ซีซัน 1",
-    episode: "ตอนที่ 3",
     title: "การดูแลสายยาง",
     duration: "6 นาที",
     description:
@@ -114,8 +108,6 @@ export const episodes: Episode[] = [
   {
     id: "episode-4",
     slug: "Static topic 4",
-    season: "ซีซัน 1",
-    episode: "ตอนที่ 4",
     title: "การดูแลสายสวนและถุงปัสสาวะ",
     duration: "4 นาที",
     description:
@@ -126,8 +118,6 @@ export const episodes: Episode[] = [
   {
     id: "episode-5",
     slug: "Static topic 5",
-    season: "ซีซัน 1",
-    episode: "ตอนที่ 5",
     title: "การประเมินและการดูแลแผลกดทับ",
     duration: "5 นาที",
     description:
@@ -138,8 +128,6 @@ export const episodes: Episode[] = [
   {
     id: "episode-6",
     slug: "Static topic 6",
-    season: "ซีซัน 1",
-    episode: "ตอนที่ 6",
     title: "สุขภาพและโภชนาการสำหรับผู้สูงอายุ",
     duration: "5 นาที",
     description:
@@ -150,8 +138,6 @@ export const episodes: Episode[] = [
   {
     id: "episode-7",
     slug: "Static topic 7",
-    season: "ซีซัน 1",
-    episode: "ตอนที่ 7",
     title: "การแปลผลสุขภาพเบื้องต้น",
     duration: "4 นาที",
     description:

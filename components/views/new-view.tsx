@@ -20,7 +20,7 @@ export function NewView({ onOpenEpisode, onOpenShow }: NewViewProps) {
         </p>
       </div>
 
-      <section aria-label="ตอนแนะนำ" className="grid grid-cols-1 gap-6 lg:grid-cols-2">
+      {/* <section aria-label="ตอนแนะนำ" className="grid grid-cols-1 gap-6 lg:grid-cols-2">
         {featureCards.slice(0, 2).map((card) => (
           <FeatureCard
             key={card.id}
@@ -28,7 +28,7 @@ export function NewView({ onOpenEpisode, onOpenShow }: NewViewProps) {
             onOpen={() => (card.episodeSlug ? onOpenEpisode(card.episodeSlug) : onOpenShow())}
           />
         ))}
-      </section>
+      </section> */}
 
       <section aria-labelledby="top-shows-heading">
         <button

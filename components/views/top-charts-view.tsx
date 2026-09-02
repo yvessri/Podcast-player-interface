@@ -10,7 +10,8 @@ type TopChartsViewProps = {
 export function TopChartsView({ onOpenEpisode }: TopChartsViewProps) {
   return (
     <div className="space-y-8">
-      <h1 className="text-4xl font-bold tracking-tight text-foreground">ชาร์ตยอดนิยม</h1>
+      <h1 className="text-4xl font-bold tracking-tight text-foreground">พอดแคส</h1>
+      <h2>การดูแลผู้สูงอายุ</h2>
 
       <ol className="flex flex-col divide-y divide-border rounded-xl border border-border bg-card">
         {episodes.map((ep, i) => (
@@ -30,7 +31,7 @@ export function TopChartsView({ onOpenEpisode }: TopChartsViewProps) {
               />
               <span className="min-w-0">
                 <span className="block truncate text-base font-semibold text-foreground">{ep.title}</span>
-                <span className="block truncate text-sm text-muted-foreground">{ep.episode} · {ep.duration}</span>
+                <span className="block truncate text-sm text-muted-foreground">{ep.duration}</span>
               </span>
             </button>
           </li>
